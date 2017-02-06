@@ -1,0 +1,9 @@
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\bin\Debug\TestRemote.exe.config
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\bin\Debug\TestRemote.exe
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\bin\Debug\TestRemote.pdb
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.csprojResolveAssemblyReference.cache
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.Form1.resources
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.Properties.Resources.resources
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.csproj.GenerateResource.Cache
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.exe
+c:\users\mizucoffee\documents\visual studio 2015\Projects\TestRemote\TestRemote\obj\Debug\TestRemote.pdb

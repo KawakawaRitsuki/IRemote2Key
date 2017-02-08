@@ -13,6 +13,7 @@ namespace TestRemote
 {
     public partial class Form1 : Form
     {
+        private delegate void Delegate_sendKey(string s);
         public Form1()
         {
             InitializeComponent();
@@ -65,9 +66,17 @@ namespace TestRemote
                 string receivedData = serialPort1.ReadLine();
                 if (!string.IsNullOrEmpty(receivedData))
                 {
+                    receivedData = receivedData.Replace("\r", "");
+                    if (receivedData.Equals("86BCC"))
+                        Invoke(new Delegate_sendKey(sendKey), new Object[] { "e" });
                     Console.Write(receivedData);
                 }
             }
+        }
+        
+        private void sendKey(string s)
+        {
+            SendKeys.Send(s);
         }
     }
 }

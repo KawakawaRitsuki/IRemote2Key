@@ -14,3 +14,9 @@ C:\Users\Mizucoffee\Documents\Visual Studio 2015\Projects\IRemote2Key\IRemote2Ke
 C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\bin\Debug\IRemote2Key.exe.config
 C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\IRemote2Key.exe
 C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\IRemote2Key.pdb
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\bin\Debug\IRemote2Key.exe
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\bin\Debug\IRemote2Key.pdb
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\IRemote2Key.csprojResolveAssemblyReference.cache
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\TestRemote.Form1.resources
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\IRemote2Key.Properties.Resources.resources
+C:\Users\Mizucoffee\Source\Repos\IRemote2Key\IRemote2Key\obj\Debug\IRemote2Key.csproj.GenerateResource.Cache

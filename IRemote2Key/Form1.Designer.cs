@@ -1,4 +1,4 @@
-﻿namespace TestRemote
+﻿namespace IRemote2Key
 {
     partial class Form1
     {
@@ -33,6 +33,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,16 +67,27 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(14, 51);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "RegisterMode";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 241);
+            this.ClientSize = new System.Drawing.Size(232, 84);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "TestRemote";
+            this.Text = "IRemote2Key";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -88,6 +100,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

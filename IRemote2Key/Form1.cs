@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace TestRemote
+namespace IRemote2Key
 {
     public partial class Form1 : Form
     {
         private delegate void Delegate_sendKey(string s);
+        private delegate void Delegate_SetText(string s);
         public Form1()
         {
             InitializeComponent();
@@ -21,9 +22,18 @@ namespace TestRemote
 
         ArrayList ircodes = new ArrayList();
         Dictionary<string, string> keys = new Dictionary<string, string>();
+        bool isRegister = false;
 
-        private void configLoad()
+        public ArrayList getIrcodes()
         {
+            return ircodes;
+        }
+
+        public void configLoad()
+        {
+            keys = new Dictionary<string, string>();
+            ircodes = new ArrayList();
+
             System.IO.StreamReader sr = new System.IO.StreamReader(@"ir.config",System.Text.Encoding.GetEncoding("utf-8"));
             
             while(sr.Peek() >= 0)
@@ -87,20 +97,43 @@ namespace TestRemote
                 if (!string.IsNullOrEmpty(receivedData))
                 {
                     receivedData = receivedData.Replace("\r", "");
-                    foreach (string ircode in ircodes)
-                    {
-                        if(ircode == receivedData)
-                            Invoke(new Delegate_sendKey(sendKey), new Object[] { keys[ircode] });
-                    }
+                    if (isRegister)
+                        Invoke(new Delegate_SetText(SetText), new Object[] { receivedData });
+                    else
+                        foreach (string ircode in ircodes)
+                        {
+                            if (ircode == receivedData)
+                                Invoke(new Delegate_sendKey(sendKey), new Object[] { keys[ircode] });
+                        }
                         
                     Console.Write(receivedData);
                 }
             }
         }
+
+        private void SetText(string s)
+        {
+            f.SetText(s);
+        }
         
         private void sendKey(string s)
         {
             SendKeys.Send(s);
+        }
+
+        public void childFormClosed()
+        {
+            isRegister = false;
+            configLoad();
+        }
+
+        Form2 f;
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            f = new Form2(this);
+            f.Show(this);
+            isRegister = true;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Collections;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,8 +19,28 @@ namespace TestRemote
             InitializeComponent();
         }
 
+        ArrayList ircodes = new ArrayList();
+        Dictionary<string, string> keys = new Dictionary<string, string>();
+
+        private void configLoad()
+        {
+            System.IO.StreamReader sr = new System.IO.StreamReader(@"ir.config",System.Text.Encoding.GetEncoding("utf-8"));
+            
+            while(sr.Peek() >= 0)
+            {
+                String s = sr.ReadLine();
+                String[] array = s.Split(',');
+                if (array.Length != 2) break;
+                ircodes.Add(array[0]);
+                keys.Add(array[0],array[1]);
+            }
+
+            sr.Close();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            configLoad();
             string[] PortList = SerialPort.GetPortNames();
             comboBox1.Items.Clear();
 
@@ -67,8 +87,12 @@ namespace TestRemote
                 if (!string.IsNullOrEmpty(receivedData))
                 {
                     receivedData = receivedData.Replace("\r", "");
-                    if (receivedData.Equals("86BCC"))
-                        Invoke(new Delegate_sendKey(sendKey), new Object[] { "e" });
+                    foreach (string ircode in ircodes)
+                    {
+                        if(ircode == receivedData)
+                            Invoke(new Delegate_sendKey(sendKey), new Object[] { keys[ircode] });
+                    }
+                        
                     Console.Write(receivedData);
                 }
             }
